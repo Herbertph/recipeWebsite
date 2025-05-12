@@ -30,9 +30,15 @@
         </div>
   
         <!-- Right Side -->
-        <div class="hidden md:block max-w-md mt-10 md:mt-0">
-          <img src="/hero.png" alt="Recipe Book" class="rounded-xl shadow-xl border border-[#E7D9C4]" />
-        </div>
+        <div class="hidden md:block max-w-md mt-10 md:mt-0 relative">
+
+  <!-- Imagem -->
+  <img
+    src="/hero.png"
+    alt="Grandma"
+    class="relative z-10 w-full object-cover"
+  />
+</div>
       </div>
     </section>
   </template>
