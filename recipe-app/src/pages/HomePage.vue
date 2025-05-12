@@ -86,9 +86,12 @@ function goBackToHero() {
       </div>
 
       <!-- Back Button -->
-      <UiButton variant="gray" @click="goBackToHero">
-        Back to Search
-      </UiButton>
+      <button
+  @click="goBackToHero"
+  class="text-[#5B4C4C] underline underline-offset-2 hover:text-[#B46F57] transition"
+>
+  Back to Search
+</button>
     </div>
   </transition>
 </template>
