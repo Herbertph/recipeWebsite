@@ -27,3 +27,4 @@ export async function getRecipeInformation(id) {
   if (!response.ok) throw new Error('Failed to fetch recipe')
   return await response.json()
 }
+
