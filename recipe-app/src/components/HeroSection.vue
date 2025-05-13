@@ -15,12 +15,17 @@
 
           <div class="flex flex-col sm:flex-row gap-4 mt-6">
             <!-- Accessible label (visually hidden) -->
-            <input id="search-input" v-model="searchTerm" aria-label="Search for a recipe" @keydown.enter="onSearch" type="text"
-              placeholder="Recipe Finder!"
+            <input id="search-input" v-model="searchTerm" aria-label="Search for a recipe" @keydown.enter="onSearch"
+              type="text" placeholder="Recipe Finder!"
               class="flex-1 px-4 py-3 border border-[#C9B6A0] bg-[#FFFDF8] rounded-lg shadow-sm focus:outline-none" />
 
             <!-- Cuisine filter dropdown -->
             <CuisineSelect v-model="selectedCuisine" aria-label="Select a cuisine" />
+
+            <!-- Error Message -->
+            <p v-if="searchError" class="text-red-600 mt-2 text-sm italic">
+              You need to type your recipe
+            </p>
 
             <!-- Search button -->
             <button @click="onSearch"
@@ -43,6 +48,7 @@
 <script setup>
 import { ref } from 'vue'
 import CuisineSelect from './CuisineSelect.vue'
+
 
 // Emit search event to parent
 const emit = defineEmits(['search'])

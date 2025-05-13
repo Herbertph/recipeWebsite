@@ -3,16 +3,14 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between relative">
 
       <!-- Main Title -->
-      <RouterLink
-        to="/"
-        aria-label="Go to home page"
+      <h1
         :class="[
           'font-bold text-xl md:text-2xl tracking-wide whitespace-nowrap',
           isHome ? 'absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0' : ''
         ]"
       >
         Grandma's Kitchen
-      </RouterLink>
+      </h1>
 
       <!-- Home Button -->
       <nav v-if="!isHome" class="hidden md:block ml-auto space-x-6">

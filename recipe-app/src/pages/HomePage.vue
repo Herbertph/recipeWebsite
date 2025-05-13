@@ -2,6 +2,8 @@
   <transition name="fade" mode="out-in">
     <HeroSection v-if="isHeroVisible" @search="handleSearch" key="hero" />
 
+
+
     <main v-else key="results"
       class="bg-[#FAF4EF] min-h-screen flex flex-col justify-center items-center gap-8 px-6 py-16">
 
