@@ -1,30 +1,23 @@
 <template>
     <section class="bg-[#FAF4EF] py-12 px-6 text-[#3B2F2F] font-serif">
-        <div class="max-w-7xl mx-auto min-h-screen px-6 pt-12 pb-8 flex flex-col">
-        
-        <!-- Top Grid: Title and Image -->
-        <div class="grid md:grid-cols-2 gap-12 items-start">
-          <!-- Left: Title and Labels -->
-          <div class="space-y-4">
-            <div>
-              <h1 class="text-5xl font-bold leading-tight">{{ recipe?.title }}</h1>
-              <div class="mt-2 flex flex-wrap gap-2">
-                <span v-if="recipe?.vegan" class="badge">Vegan</span>
-                <span v-if="recipe?.vegetarian" class="badge">Vegetarian</span>
-                <span v-if="recipe?.dairyFree" class="badge">Dairy-Free</span>
-                <span v-if="recipe?.glutenFree" class="badge">Gluten-Free</span>
-              </div>
-            </div>
+      <div class="max-w-7xl mx-auto min-h-screen flex flex-col space-y-12">
+  
+        <!-- Top: Title, Tags, and Image (stacked) -->
+        <div class="flex flex-col items-center text-center space-y-6">
+          <h1 class="text-5xl font-bold leading-tight max-w-4xl">{{ recipe?.title }}</h1>
+          
+          <div class="flex flex-wrap gap-2 justify-center">
+            <span v-if="recipe?.vegan" class="badge">Vegan</span>
+            <span v-if="recipe?.vegetarian" class="badge">Vegetarian</span>
+            <span v-if="recipe?.dairyFree" class="badge">Dairy-Free</span>
+            <span v-if="recipe?.glutenFree" class="badge">Gluten-Free</span>
           </div>
   
-          <!-- Right: Image -->
-          <div>
-            <img
-              :src="recipe?.image"
-              :alt="recipe?.title"
-              class="w-full rounded-xl shadow-md border border-[#E7D9C4] object-cover"
-            />
-          </div>
+          <img
+            :src="recipe?.image"
+            :alt="recipe?.title"
+            class="w-full max-w-2xl rounded-xl shadow-md border border-[#E7D9C4] object-cover"
+          />
         </div>
   
         <!-- Bottom Grid: Instructions and Ingredients -->
