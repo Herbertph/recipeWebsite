@@ -22,10 +22,7 @@
             <!-- Cuisine filter dropdown -->
             <CuisineSelect v-model="selectedCuisine" aria-label="Select a cuisine" />
 
-            <!-- Error Message -->
-            <p v-if="searchError" class="text-red-600 mt-2 text-sm italic">
-              You need to type your recipe
-            </p>
+           
 
             <!-- Search button -->
             <button @click="onSearch"
@@ -33,6 +30,10 @@
               Search
             </button>
           </div>
+           <!-- Error Message -->
+           <p v-if="searchError" class="text-red-600 mt-2 text-sm italic">
+              You need to type your recipe
+            </p>
         </div>
 
         <!-- Right Side: Decorative Image -->
@@ -49,6 +50,12 @@
 import { ref } from 'vue'
 import CuisineSelect from './CuisineSelect.vue'
 
+defineProps({
+  searchError: {
+    type: Boolean,
+    default: false
+  }
+})
 
 // Emit search event to parent
 const emit = defineEmits(['search'])
@@ -59,7 +66,6 @@ const selectedCuisine = ref('')
 
 // Emit search event when user hits enter or clicks button
 function onSearch() {
-  if (!searchTerm.value.trim()) return // Basic validation
   emit('search', {
     query: searchTerm.value,
     cuisine: selectedCuisine.value
