@@ -18,7 +18,7 @@ A cozy recipe website built with Vue.js that helps you discover and explore deli
 
 - Node.js (v14 or higher)
 - npm or yarn
-- Spoonacular API key ([Get it here](https://spoonacular.com/food-api))
+- Spoonacular API key ((https://spoonacular.com/food-api))
 
 ## Installation
 
@@ -47,7 +47,19 @@ npm run dev
 
 The application will be available at `http://localhost:5173`
 
-## Building for Production
+## Testing
+
+The project uses Vitest for unit testing. Tests are located in the `src/tests` directory and focus on:
+- API service functionality
+- Recipe search and retrieval
+- Error handling
+
+To run the tests:
+```bash
+npm run test
+```
+
+## Building and Deployment
 
 To create a production build:
 ```bash
@@ -59,6 +71,11 @@ To preview the production build:
 npm run preview
 ```
 
+To deploy to GitHub Pages:
+```bash
+npm run deploy
+```
+
 ## Technologies Used
 
 - Vue.js 3 - Frontend framework
@@ -66,6 +83,8 @@ npm run preview
 - Tailwind CSS - Styling
 - Vite - Build tool and development server
 - Spoonacular API - Recipe data
+- Vitest - Unit testing framework
+- GitHub Pages - Hosting
 
 ## Project Structure
 
@@ -75,6 +94,7 @@ npm run preview
   - `/services` - API services
   - `/router` - Route configuration
   - `/assets` - Static assets and global styles
+  - `/tests` - Unit tests
 
 ## Contributing
 
