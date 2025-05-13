@@ -20,31 +20,32 @@
           />
         </div>
   
-        <!-- Bottom Grid: Instructions and Ingredients -->
-        <div class="grid md:grid-cols-2 gap-12 items-start">
-          <!-- Instructions -->
-          <div>
-            <h2 class="text-2xl font-semibold mb-2 tracking-wide">Instructions</h2>
-            <hr class="my-4 border-t border-[#E7D9C4] w-24">
-            <div
-              v-if="recipe?.instructions"
-              class="text-[17px] leading-relaxed space-y-4"
-              v-html="recipe.instructions"
-            />
-            <p v-else class="italic text-gray-500">No instructions available.</p>
-          </div>
-  
-          <!-- Ingredients -->
-          <div v-if="recipe?.extendedIngredients">
-            <h2 class="text-2xl font-semibold mb-2 tracking-wide">Ingredients</h2>
-            <hr class="my-4 border-t border-[#E7D9C4] w-24">
-            <ul class="list-disc list-inside space-y-1 text-[17px] leading-relaxed">
-              <li v-for="item in recipe.extendedIngredients" :key="item.id">
-                {{ item.original }}
-              </li>
-            </ul>
-          </div>
-        </div>
+     <!-- Ingredients Horizontal -->
+<div v-if="recipe?.extendedIngredients" class="max-w-5xl mx-auto mt-12">
+  <h2 class="text-2xl font-semibold mb-4 tracking-wide text-center">Ingredients</h2>
+  <hr class="mx-auto mb-6 border-t border-[#E7D9C4] w-24">
+  <div class="flex flex-wrap justify-center gap-4 text-[17px] leading-relaxed text-left">
+    <span
+      v-for="item in recipe.extendedIngredients"
+      :key="item.id"
+      class="bg-[#FFFDF8] border border-[#E7D9C4] px-4 py-2 rounded shadow-sm"
+    >
+      {{ item.original }}
+    </span>
+  </div>
+</div>
+
+<!-- Instructions Below -->
+<div class="max-w-3xl mx-auto mt-16">
+  <h2 class="text-2xl font-semibold mb-2 tracking-wide text-center">Instructions</h2>
+  <hr class="my-4 border-t border-[#E7D9C4] w-24 mx-auto">
+  <div
+    v-if="recipe?.instructions"
+    class="text-[17px] leading-relaxed space-y-4 text-left"
+    v-html="recipe.instructions"
+  />
+  <p v-else class="italic text-gray-500 text-center">No instructions available.</p>
+</div>
   
         <!-- Footer Links -->
         <div class="text-center flex flex-col sm:flex-row justify-center gap-6 mt-16 mb-6 text-[16px]">
