@@ -4,6 +4,7 @@
 
       <!-- Centralizado no desktop, adaptável no mobile -->
       <RouterLink to="/"
+        aria-label="Go to home page"
         class="font-bold text-xl md:text-2xl tracking-wide absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 whitespace-nowrap">
         Grandma's Kitchen
       </RouterLink>

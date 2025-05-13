@@ -15,13 +15,12 @@
 
           <div class="flex flex-col sm:flex-row gap-4 mt-6">
             <!-- Accessible label (visually hidden) -->
-            <label for="search" class="sr-only">Search for a recipe</label>
-            <input id="search" v-model="searchTerm" @keydown.enter="onSearch" type="text"
+            <input id="search-input" v-model="searchTerm" aria-label="Search for a recipe" @keydown.enter="onSearch" type="text"
               placeholder="Recipe Finder!"
               class="flex-1 px-4 py-3 border border-[#C9B6A0] bg-[#FFFDF8] rounded-lg shadow-sm focus:outline-none" />
 
             <!-- Cuisine filter dropdown -->
-            <CuisineSelect v-model="selectedCuisine" />
+            <CuisineSelect v-model="selectedCuisine" aria-label="Select a cuisine" />
 
             <!-- Search button -->
             <button @click="onSearch"

@@ -1,5 +1,5 @@
 <template>
-  <div @mouseenter="setHovered(recipe.id)" @mouseleave="setHovered(null)" @click="$router.push(`/recipe/${recipe.id}`)"
+  <div @mouseenter="setHovered(recipe.id)" @mouseleave="setHovered(null)" @click="$router.push(`/recipe/${recipe.id}`)" role="button" aria-label="`View details for ${recipe.title}`"
     class="cursor-pointer bg-white shadow rounded-xl transition duration-300 flex flex-col items-center justify-between w-48 h-72"
     :class="{
       'scale-105 z-10 shadow-lg': hoveredCard === recipe.id,
@@ -7,9 +7,9 @@
     }">
     <!-- Image section -->
     <div class="w-full h-40 flex items-center justify-center bg-gray-100 overflow-hidden rounded-t-xl">
-      <img v-if="imageVisible" :src="recipe.image" :alt="recipe.title" class="w-full h-full object-cover"
+      <img v-if="imageVisible" :src="recipe.image" :alt="`Image of ${recipe.title}`" class="w-full h-full object-cover"
         @error="handleImageError" />
-      <span v-else class="text-gray-500 italic text-sm">No Image</span>
+      <span v-else class="text-gray-500 italic text-sm" aria-label="No Image Available">No Image</span>
     </div>
 
     <!-- Title section -->

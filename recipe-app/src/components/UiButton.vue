@@ -1,6 +1,7 @@
 <!-- src/components/UiButton.vue -->
 <template>
     <button
+      :aria-label="ariaLabel"
       :class="[
         'px-5 py-2 rounded text-white font-medium transition',
         variant === 'primary' ? 'bg-[#B46F57] hover:brightness-110' :
@@ -19,6 +20,7 @@
   defineProps({
     variant: { type: String, default: 'primary' },
     disabled: Boolean,
+    ariaLabel: String
   })
   defineEmits(['click'])
   </script>

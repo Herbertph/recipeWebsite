@@ -10,17 +10,17 @@
 
         <!-- Health Tags -->
         <div class="flex flex-wrap gap-2 justify-center">
-          <span v-if="recipe?.vegan" class="badge">Vegan</span>
-          <span v-if="recipe?.vegetarian" class="badge">Vegetarian</span>
-          <span v-if="recipe?.dairyFree" class="badge">Dairy-Free</span>
-          <span v-if="recipe?.glutenFree" class="badge">Gluten-Free</span>
+          <span v-if="recipe?.vegan" class="badge" aria-label="Vegan">Vegan</span>
+          <span v-if="recipe?.vegetarian" class="badge" aria-label="Vegetarian">Vegetarian</span>
+          <span v-if="recipe?.dairyFree" class="badge" aria-label="Dairy-Free">Dairy-Free</span>
+          <span v-if="recipe?.glutenFree" class="badge" aria-label="Gluten-Free">Gluten-Free</span>
         </div>
 
         <!-- Image -->
         <div class="w-full max-w-2xl rounded-xl shadow-md border border-[#E7D9C4] overflow-hidden">
-          <img v-if="imageVisible" :src="recipe?.image" :alt="recipe?.title" @error="handleImageError"
+          <img v-if="imageVisible" :src="recipe?.image" :alt="`Image of ${recipe?.title}`" @error="handleImageError"
             class="w-full object-cover" />
-          <div v-else class="w-full h-64 flex items-center justify-center text-gray-500 italic bg-gray-100">
+          <div v-else class="w-full h-64 flex items-center justify-center text-gray-500 italic bg-gray-100" aria-label="No Image Available">
             No Image Available
           </div>
         </div>
