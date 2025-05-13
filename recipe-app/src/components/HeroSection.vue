@@ -17,7 +17,7 @@
             <!-- Accessible label (visually hidden) -->
             <label for="search" class="sr-only">Search for a recipe</label>
             <input id="search" v-model="searchTerm" @keydown.enter="onSearch" type="text"
-              placeholder="What are you hungry for?"
+              placeholder="Recipe Finder!"
               class="flex-1 px-4 py-3 border border-[#C9B6A0] bg-[#FFFDF8] rounded-lg shadow-sm focus:outline-none" />
 
             <!-- Cuisine filter dropdown -->

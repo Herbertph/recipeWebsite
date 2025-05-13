@@ -67,8 +67,12 @@ const recipe = ref(null)
 const imageVisible = ref(true)
 const route = useRoute()
 
-function handleImageError() {
-  imageVisible.value = false
+function handleImageError(e) {
+  setTimeout(() => {
+    if (!e.target.complete || e.target.naturalWidth === 0) {
+      imageVisible.value = false
+    }
+  }, 500)
 }
 
 onMounted(async () => {

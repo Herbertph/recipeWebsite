@@ -4,7 +4,7 @@ const BASE_URL = 'https://api.spoonacular.com/recipes'
 
 export async function searchRecipes(query, cuisine, offset = 0, number = 5) {
   const params = new URLSearchParams({
-    apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
+    apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY2,
     query,
     cuisine,
     offset,
@@ -22,7 +22,7 @@ export async function searchRecipes(query, cuisine, offset = 0, number = 5) {
 
 export async function getRecipeInformation(id) {
   const response = await fetch(
-    `${BASE_URL}/${id}/information?apiKey=${import.meta.env.VITE_SPOONACULAR_API_KEY}`
+    `${BASE_URL}/${id}/information?apiKey=${import.meta.env.VITE_SPOONACULAR_API_KEY2}`
   )
   if (!response.ok) throw new Error('Failed to fetch recipe')
   return await response.json()
