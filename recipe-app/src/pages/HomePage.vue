@@ -5,6 +5,11 @@
     <main v-else key="results"
       class="bg-[#FAF4EF] min-h-screen flex flex-col justify-center items-center gap-8 px-6 py-16">
 
+      <!-- Section Heading -->
+      <h2 class="text-2xl sm:text-3xl font-semibold text-[#3B2F2F] tracking-wide">
+        Choose your delicious recipe
+      </h2>
+
       <!-- Loading Indicator -->
       <div v-if="isLoading" class="text-[#5B4C4C] text-lg font-medium">Loading recipes...</div>
 
@@ -13,14 +18,29 @@
         <RecipeCard v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" />
       </div>
 
-      <!-- Arrows -->
-      <div class="flex justify-center gap-4">
-        <UiButton :disabled="currentPage === 1 || isLoading" @click="changePage(currentPage - 1)">
+      <!-- Navigation Buttons -->
+      <div class="flex justify-center gap-4 items-center">
+        <!-- First page -->
+        <UiButton :disabled="currentPage === 1 || isLoading" @click="changePage(1)" aria-label="First page">
+          «
+        </UiButton>
+
+        <!-- Previous page -->
+        <UiButton :disabled="currentPage === 1 || isLoading" @click="changePage(currentPage - 1)"
+          aria-label="Previous page">
           ←
         </UiButton>
 
-        <UiButton :disabled="currentPage * 5 >= totalResults || isLoading" @click="changePage(currentPage + 1)">
+        <!-- Next page -->
+        <UiButton :disabled="currentPage * 5 >= totalResults || isLoading" @click="changePage(currentPage + 1)"
+          aria-label="Next page">
           →
+        </UiButton>
+
+        <!-- Last page -->
+        <UiButton :disabled="currentPage === totalPages || isLoading" @click="changePage(totalPages)"
+          aria-label="Last page">
+          »
         </UiButton>
       </div>
 
@@ -33,7 +53,7 @@
 </template>
 
 <script setup>
-import { ref, provide } from 'vue'
+import { ref, computed, provide } from 'vue'
 import HeroSection from '../components/HeroSection.vue'
 import RecipeCard from '../components/RecipeCard.vue'
 import UiButton from '../components/UiButton.vue'
@@ -48,6 +68,8 @@ const lastCuisine = ref('')
 const hoveredCard = ref(null)
 const isLoading = ref(false)
 const searchError = ref(false)
+
+const totalPages = computed(() => Math.ceil(totalResults.value / 5))
 
 const setHovered = (id) => {
   hoveredCard.value = id
@@ -80,6 +102,7 @@ async function handleSearch({ query, cuisine }) {
 }
 
 async function changePage(page) {
+  if (page < 1 || page > totalPages.value) return
   currentPage.value = page
   const offset = (page - 1) * 5
   await loadRecipes(lastQuery.value, lastCuisine.value, offset, 5)
@@ -102,15 +125,3 @@ function goBackToHero() {
   resetSearch()
 }
 </script>
-
-<style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
