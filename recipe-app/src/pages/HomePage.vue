@@ -31,6 +31,11 @@
           ←
         </UiButton>
 
+        <!-- Page counter -->
+        <span class="text-[#5B4C4C] font-medium font-bold text-sm min-w-[80px] text-center">
+          {{ currentPage }} / {{ totalPages }}
+        </span>
+
         <!-- Next page -->
         <UiButton :disabled="currentPage * 5 >= totalResults || isLoading" @click="changePage(currentPage + 1)"
           aria-label="Next page">
