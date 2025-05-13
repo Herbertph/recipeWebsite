@@ -7,7 +7,7 @@
   key="hero"
 />
     <main v-else key="results"
-      class="bg-[#FAF4EF] min-h-screen flex flex-col justify-center items-center gap-8 px-6 py-16">
+    class="bg-[#FAF4EF] flex-1 flex flex-col justify-center items-center gap-8 px-6 py-16">
 
       <!-- Section Heading -->
       <h2 class="text-2xl sm:text-3xl font-bold text-[#3B2F2F] leading-snug tracking-wide">

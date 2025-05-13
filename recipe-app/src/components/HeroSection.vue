@@ -1,7 +1,7 @@
 <template>
-  <section class="bg-[#FAF4EF] text-[#3B2F2F] font-serif flex flex-col min-h-screen">
+  <section class="bg-[#FAF4EF] text-[#3B2F2F] font-serif flex flex-col flex-1">
     <!-- Main container that grows to fill available space -->
-    <div class="flex-grow flex items-center justify-center">
+    <div class="flex items-center justify-center flex-1">
       <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-x-16 px-6 py-12">
 
         <!-- Left Side: Text and Search -->
