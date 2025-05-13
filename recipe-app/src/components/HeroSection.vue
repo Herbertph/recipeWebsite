@@ -42,8 +42,7 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <Footer />
+   
   </section>
 </template>
 

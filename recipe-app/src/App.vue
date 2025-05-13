@@ -32,7 +32,4 @@ html, body, #app {
   padding: 0;
 }
 
-.no-scroll {
-  overflow: hidden;
-}
 </style>
