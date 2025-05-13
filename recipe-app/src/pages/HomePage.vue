@@ -53,13 +53,21 @@ function goBackToHero() {
     <HeroSection v-if="showHero" @search="handleSearch" key="hero" />
 
     <div
-      v-else
-      key="results"
-      class="bg-[#FAF4EF] h-screen flex flex-col justify-center items-center gap-8 px-6"
-    >
-      <!-- Cards & Arrows -->
-      <div class="relative w-full max-w-7xl flex items-center justify-between">
-        <!-- Prev Arrow -->
+  v-else
+  key="results"
+  class="bg-[#FAF4EF] min-h-screen flex flex-col justify-center items-center gap-8 px-6 py-16"
+>
+      <!-- Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <RecipeCard
+          v-for="recipe in recipes"
+          :key="recipe.id"
+          :recipe="recipe"
+        />
+      </div>
+
+      <!-- Arrows -->
+      <div class="flex justify-center gap-4">
         <UiButton
           :disabled="currentPage === 1"
           @click="changePage(currentPage - 1)"
@@ -67,16 +75,6 @@ function goBackToHero() {
           ←
         </UiButton>
 
-        <!-- Cards -->
-        <div class="grid grid-cols-5 gap-4 flex-1 mx-6">
-          <RecipeCard
-            v-for="recipe in recipes"
-            :key="recipe.id"
-            :recipe="recipe"
-          />
-        </div>
-
-        <!-- Next Arrow -->
         <UiButton
           :disabled="currentPage * 5 >= totalResults"
           @click="changePage(currentPage + 1)"
@@ -87,20 +85,22 @@ function goBackToHero() {
 
       <!-- Back Button -->
       <button
-  @click="goBackToHero"
-  class="text-[#5B4C4C] underline underline-offset-2 hover:text-[#B46F57] transition"
->
-  Back to Search
-</button>
+        @click="goBackToHero"
+        class="text-[#5B4C4C] underline underline-offset-2 hover:text-[#B46F57] transition"
+      >
+        Back to Search
+      </button>
     </div>
   </transition>
 </template>
 
 <style>
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s ease;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

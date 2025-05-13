@@ -1,6 +1,8 @@
 <template>
-    <section class="bg-[#FAF4EF] bg-[url('/paper-texture.png')] bg-cover text-[#3B2F2F] font-serif">
-      <div class="max-w-7xl mx-auto min-h-screen flex flex-col-reverse md:flex-row items-center justify-center gap-x-16 px-6 py-12">
+  <section class="bg-[#FAF4EF] text-[#3B2F2F] font-serif flex flex-col min-h-screen">
+   
+    <div class="flex-grow flex items-center justify-center">
+      <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-x-16 px-6 py-12">
         
         <!-- Left Side -->
         <div class="max-w-xl space-y-6 text-center md:text-left bg-white/70 p-8 rounded-lg shadow-md">
@@ -10,7 +12,7 @@
           <p class="text-lg text-[#5B4C4C] italic">
             Straight from grandma’s kitchen — warm, simple, and full of love.
           </p>
-  
+
           <div class="flex flex-col sm:flex-row gap-4 mt-6">
             <input
               v-model="searchTerm"
@@ -28,35 +30,37 @@
             </button>
           </div>
         </div>
-  
+
         <!-- Right Side -->
         <div class="hidden md:block max-w-md mt-10 md:mt-0 relative">
-
-  <!-- Imagem -->
-  <img
-    src="/hero.png"
-    alt="Grandma"
-    class="relative z-10 w-full object-cover"
-  />
-</div>
+          <img
+            src="/hero.png"
+            alt="Grandma"
+            class="relative z-10 w-full object-cover"
+          />
+        </div>
       </div>
-    </section>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue'
-  import CuisineSelect from './CuisineSelect.vue'
-  
-  const emit = defineEmits(['search'])
-  
-  const searchTerm = ref('')
-  const selectedCuisine = ref('')
-  
-  function onSearch() {
-    emit('search', {
-      query: searchTerm.value,
-      cuisine: selectedCuisine.value
-    })
-  }
-  </script>
-  
+    </div>
+
+    <!-- Footer -->
+    <Footer />
+  </section>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import CuisineSelect from './CuisineSelect.vue'
+import Footer from './Footer.vue'
+
+const emit = defineEmits(['search'])
+
+const searchTerm = ref('')
+const selectedCuisine = ref('')
+
+function onSearch() {
+  emit('search', {
+    query: searchTerm.value,
+    cuisine: selectedCuisine.value
+  })
+}
+</script>
