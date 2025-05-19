@@ -1,9 +1,18 @@
 <template>
-  <select :value="modelValue" @change="$emit('update:modelValue', $event.target.value)"
-    class="px-4 py-3 border border-gray-300 rounded-lg" aria-label="Filter by cuisine">
+  <select 
+  :value="modelValue" 
+  @change="$emit('update:modelValue', $event.target.value)"
+  class="px-4 py-3 border border-gray-300 rounded-lg" 
+  aria-label="Filter by cuisine"
+  >
     <option value="">All cuisines</option>
-    <option v-for="c in cuisines" :key="c" :value="c">
-      {{ c }}
+    <option 
+      v-for="cuisine in cuisines" 
+      :key="cuisine" 
+      :value="cuisine"
+      :selected="cuisine === modelValue"
+    >
+      {{ cuisine }}
     </option>
   </select>
 </template>

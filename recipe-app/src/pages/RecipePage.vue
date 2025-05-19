@@ -77,7 +77,12 @@ function handleImageError(e) {
 
 onMounted(async () => {
   const id = route.params.id
-  recipe.value = await getRecipeInformation(id)
+  try {
+    recipe.value = await getRecipeInformation(id)
+  } catch (error) {
+    console.error('Failed to load recipe:', error)
+    router.push('/')
+  }
 })
 </script>
 

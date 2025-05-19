@@ -1,10 +1,17 @@
 <template>
-  <div @mouseenter="setHovered(recipe.id)" @mouseleave="setHovered(null)" @click="$router.push(`/recipe/${recipe.id}`)" role="button" aria-label="`View details for ${recipe.title}`"
+  <div 
+    @mouseenter="setHovered(recipe.id)" 
+    @mouseleave="setHovered(null)" 
+    @click="$router.push(`/recipe/${recipe.id}`)" 
+    role="button"
+    :aria-label="`View details for ${recipe.title}`"
+    tabindex="0"
     class="cursor-pointer bg-white shadow rounded-xl transition duration-300 flex flex-col items-center justify-between w-48 h-72"
     :class="{
       'scale-105 z-10 shadow-lg': hoveredCard === recipe.id,
       'opacity-60': hoveredCard !== null && hoveredCard !== recipe.id
     }">
+
     <!-- Image section -->
     <div class="w-full h-40 flex items-center justify-center bg-gray-100 overflow-hidden rounded-t-xl">
       <img v-if="imageVisible" :src="recipe.image" :alt="`Image of ${recipe.title}`" class="w-full h-full object-cover"
@@ -24,7 +31,6 @@
 <script setup>
 import { ref, inject } from 'vue'
 
-// Props
 const props = defineProps(['recipe'])
 
 // Injected values to track hovered card
