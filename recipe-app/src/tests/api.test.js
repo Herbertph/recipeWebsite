@@ -27,7 +27,7 @@ describe('API Service', () => {
     it('should throw an error if fetch fails', async () => {
       global.fetch = vi.fn().mockResolvedValue(fakeResponse({}, false))
 
-      await expect(searchRecipes('pasta', '', 0, 5)).rejects.toThrow('Failed to fetch recipes')
+      await expect(searchRecipes('pasta', '', 0, 5)).rejects.toThrow('Failed to fetch data')
     })
   })
 
@@ -45,7 +45,7 @@ describe('API Service', () => {
     it('should throw error when fetch fails', async () => {
       global.fetch = vi.fn().mockResolvedValue(fakeResponse({}, false))
 
-      await expect(getRecipeInformation(123)).rejects.toThrow('Failed to fetch recipe')
+      await expect(getRecipeInformation(123)).rejects.toThrow('Failed to fetch data')
     })
   })
 })

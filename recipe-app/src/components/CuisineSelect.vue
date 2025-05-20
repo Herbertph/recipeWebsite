@@ -10,7 +10,6 @@
       v-for="cuisine in cuisines" 
       :key="cuisine" 
       :value="cuisine"
-      :selected="cuisine === modelValue"
     >
       {{ cuisine }}
     </option>
